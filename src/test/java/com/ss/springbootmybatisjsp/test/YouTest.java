@@ -40,6 +40,5 @@ public class YouTest {
         for (Section ss : list) {
             System.out.println(ss);
         }
-
     }
 }
