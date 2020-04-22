@@ -41,4 +41,14 @@ public class YouTest {
             System.out.println(ss);
         }
     }
+
+    @Test
+    public void m2() {
+
+        int a = 1;
+        int b = 2;
+        int c = a + b;
+        System.out.println(c);
+
+    }
 }
