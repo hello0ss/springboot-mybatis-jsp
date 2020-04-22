@@ -8,10 +8,10 @@ import com.ss.springbootmybatisjsp.service.SectionService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @SpringBootTest(classes = SpringbootMybatisJspApplication.class)
@@ -19,10 +19,10 @@ import java.util.List;
 @Slf4j
 public class YouTest {
 
-    @Autowired
+    @Resource
     SectionService sectionService;
 
-    @Autowired
+    @Resource
     SectionDAO sectionDAO;
 
     @Test
@@ -40,5 +40,6 @@ public class YouTest {
         for (Section ss : list) {
             System.out.println(ss);
         }
+
     }
 }
