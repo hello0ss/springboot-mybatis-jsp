@@ -51,4 +51,9 @@ public class YouTest {
         System.out.println(c);
         System.out.println("哈哈哈");
     }
+
+    @Test
+    public void asas() {
+        System.out.println("==============");
+    }
 }
