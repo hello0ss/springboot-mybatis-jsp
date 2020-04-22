@@ -1,0 +1,36 @@
+server:
+  port: 8181
+  context-path: /springboot-mybatis-jsp
+  #jsp页面热部署
+  jsp-servlet:
+    init-parameters:
+      development: true
+spring:
+  #数据源
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://192.168.226.5:8066/aaa?characterEncoding=UTF-8
+    username: root  #MyCat  username
+    password: root  #MyCat  password
+  #视图解析器
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  #文件上传下载
+  http:
+    multipart:
+      #单词文件的最大值
+      max-file-size: 100MB
+      #单词请求的最大值
+      max-request-size: 200MB
+
+mybatis:
+  type-aliases-package: com.ss.springbootmybatisjsp.entity
+  mapper-locations: classpath:com/ss/mapper/*.xml
+
+#日志 运行
+logging:
+  level:
+    root: error

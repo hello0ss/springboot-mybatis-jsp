@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 
+	namespace: 指定当前mapper.xml管理的接口 全限定名
+	注意：一个mapper.xml只能管理一个接口
+-->
+<mapper namespace="com.ss.springbootmybatisjsp.dao.PersonDAO">
+
+    <resultMap id="PersonResultMap" type="Person">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="image" property="image"/>
+        <result column="salary" property="salary"/>
+        <result column="age" property="age"/>
+        <result column="seid" property="seid"/>
+        <association property="section" javaType="Section">
+            <id column="id" property="id"/>
+            <result column="seid" property="seid"/>
+            <result column="name" property="name"/>
+        </association>
+    </resultMap>
+
+    <select id="show" resultMap="PersonResultMap">
+        select a.id,a.username,a.image,a.salary,a.age,a.seid,b.id,b.seid,b.name from person a
+        inner join section b
+        on a.seid = b.seid
+        where a.seid=#{seid}
+    </select>
+
+    <select id="showPerson" resultMap="PersonResultMap">
+        select a.id,a.username,a.image,a.salary,a.age,a.seid,b.id,b.seid,b.name from person a
+        inner join section b
+        on a.seid = b.seid
+        where a.id=#{id}
+    </select>
+
+    <insert id="insertPerson" parameterType="Person">
+        insert into person values (#{id},#{image},#{username},#{salary},#{age},#{seid})
+    </insert>
+
+    <delete id="deletePerson" parameterType="String">
+        delete from person where id=#{id}
+    </delete>
+
+    <update id="updatePerson" parameterType="Person">
+        update person
+        <set>
+            <if test="image != null">
+                image=#{image},
+            </if>
+            <if test="username != null">
+                username=#{username},
+            </if>
+            <if test="salary != null">
+                salary=#{salary},
+            </if>
+            <if test="age != null">
+                age=#{age},
+            </if>
+            <if test="seid != null">
+                seid=#{seid}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
