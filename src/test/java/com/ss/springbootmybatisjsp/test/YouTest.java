@@ -49,5 +49,6 @@ public class YouTest {
         int b = 2;
         int c = a + b;
         System.out.println(c);
+        System.out.println("哈哈哈");
     }
 }
